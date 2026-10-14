@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Табличные данные</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Список столиц мира</title>
+    </head>
+    <body>
+        <p>
+            <a href="main.html">Столицы мира</a><br>
+            <b>Список столиц мира</b>
+        </p>
+        <hr>
+        <h1>Список столиц мира</h1>
+        <p>В таблице представлены страны и их столицы.</p>
+        <h2>Поиск и фильтрация</h2>
+        <form>
+            <p>
+                <label for="country">Название страны:</label>
+                <input type="text" id="country" name="country" placeholder="Введите страну">
+            </p>
+            <p>
+                <label for="capital">Название столицы:</label>
+                <input type="text" id="capital" name="capital" placeholder="Введите столицу">
+            </p>
+            <p>
+                <label for="population">Население столицы, млн человек:</label>
+                <input type="number" id="population" name="population" min="0">
+            </p>
+            <p>
+                <label for="continent">Часть света:</label>
+                <select id="continent" name="continent">
+                    <option value="">Все регионы</option>
+                </select>
+            </p>
+            <input type="submit" value="Найти">
+            <input type="reset" value="Очистить">
+        </form>
+        <h2>Таблица столиц мира</h2>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+            <tr>
+                <th>№</th>
+                <th>Страна</th>
+                <th>Столица</th>
+                <th>Часть света</th>
+                <th>Население, млн человек</th>
+            </tr>
+            </thead>
+            <tbody>
 
-</body>
+            </tbody>
+        </table>
+        <footer>
+            <p>
+                Разработчик: Васильев Юрий
+            </p>
+        </footer>
+    </body>
 </html>

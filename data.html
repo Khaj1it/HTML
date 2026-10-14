@@ -13,28 +13,89 @@
         <h1>Список столиц мира</h1>
         <p>В таблице представлены страны и их столицы.</p>
         <h2>Поиск и фильтрация</h2>
-        <form>
-            <p>
-                <label for="country">Название страны:</label>
-                <input type="text" id="country" name="country" placeholder="Введите страну">
-            </p>
-            <p>
-                <label for="capital">Название столицы:</label>
-                <input type="text" id="capital" name="capital" placeholder="Введите столицу">
-            </p>
-            <p>
-                <label for="population">Население столицы, млн человек:</label>
-                <input type="number" id="population" name="population" min="0">
-            </p>
-            <p>
-                <label for="continent">Часть света:</label>
-                <select id="continent" name="continent">
-                    <option value="">Все регионы</option>
-                </select>
-            </p>
-            <input type="submit" value="Найти">
-            <input type="reset" value="Очистить">
-        </form>
+        <details open>
+            <summary>Фильтр</summary>
+            <form>
+                <p>
+                    <label for="country">Страна:</label>
+                    <select id="country" name="country">
+                        <option value="">Все страны</option>
+                    </select>
+                </p>
+<!--                <p>-->
+<!--                    <label for="capital">Столица:</label>-->
+<!--                    <select id="capital" name="capital">-->
+<!--                        <option value="">Все столицы</option>-->
+<!--                    </select>-->
+<!--                </p>-->
+                <!-- Как будто-то это лишняя фильтрация, т.к столица и страна ссылается на одну запись,
+                 не выбрал еще лучше фильтрацию по столице оставить или стране -->
+                <p>
+                    <label for="continent">Часть света:</label>
+                    <select id="continent" name="continent">
+                        <option value="">Все регионы</option>
+                        <option value="Европа">Европа</option>
+                        <option value="Азия">Азия</option>
+                        <option value="Африка">Африка</option>
+                        <option value="Северная Америка">Северная Америка</option>
+                        <option value="Южная Америка">Южная Америка</option>
+                        <option value="Океания">Океания</option>
+                    </select>
+                </p>
+                <p>
+                    Население, млн человек:
+                    <label for="populationMin">от</label>
+                    <input type="number" id="populationMin" name="populationMin" min="0" step="0.1">
+                    <label for="populationMax">до</label>
+                    <input type="number" id="populationMax" name="populationMax" min="0" step="0.1">
+                </p>
+                <input type="submit" value="Найти">
+                <input type="reset" value="Очистить">
+            </form>
+        </details>
+        <details open>
+            <summary>Сортировка</summary>
+            <form>
+                <p>
+                    Первый уровень:
+                    <select name="sort1">
+                        <option value="">Нет</option>
+                        <option value="country">Страна</option>
+                        <option value="capital">Столица</option>
+                        <option value="continent">Часть света</option>
+                        <option value="population">Население</option>
+                    </select>
+                    по убыванию?
+                    <input type="checkbox" name="desc1">
+                </p>
+                <p>
+                    Второй уровень:
+                    <select name="sort2">
+                        <option value="">Нет</option>
+                        <option value="country">Страна</option>
+                        <option value="capital">Столица</option>
+                        <option value="continent">Часть света</option>
+                        <option value="population">Население</option>
+                    </select>
+                    по убыванию?
+                    <input type="checkbox" name="desc2">
+                </p>
+                <p>
+                    Третий уровень:
+                    <select name="sort3">
+                        <option value="">Нет</option>
+                        <option value="country">Страна</option>
+                        <option value="capital">Столица</option>
+                        <option value="continent">Часть света</option>
+                        <option value="population">Население</option>
+                    </select>
+                    по убыванию?
+                    <input type="checkbox" name="desc3">
+                </p>
+                <input type="submit" value="Сортировать">
+                <input type="reset" value="Очистить">
+            </form>
+        </details>
         <h2>Таблица столиц мира</h2>
         <table border="1" cellpadding="5" cellspacing="0">
             <thead>
@@ -47,7 +108,56 @@
             </tr>
             </thead>
             <tbody>
-
+            <tr><td>1</td><td>Россия</td><td>Москва</td><td>Европа</td><td>13.2</td></tr>
+            <tr><td>2</td><td>Китай</td><td>Пекин</td><td>Азия</td><td>22.0</td></tr>
+            <tr><td>3</td><td>Япония</td><td>Токио</td><td>Азия</td><td>14.0</td></tr>
+            <tr><td>4</td><td>Южная Корея</td><td>Сеул</td><td>Азия</td><td>9.3</td></tr>
+            <tr><td>5</td><td>Индия</td><td>Нью-Дели</td><td>Азия</td><td>18.0</td></tr>
+            <tr><td>6</td><td>Казахстан</td><td>Астана</td><td>Азия</td><td>1.5</td></tr>
+            <tr><td>7</td><td>Монголия</td><td>Улан-Батор</td><td>Азия</td><td>1.7</td></tr>
+            <tr><td>8</td><td>Таиланд</td><td>Бангкок</td><td>Азия</td><td>5.5</td></tr>
+            <tr><td>9</td><td>Вьетнам</td><td>Ханой</td><td>Азия</td><td>8.5</td></tr>
+            <tr><td>10</td><td>Индонезия</td><td>Джакарта</td><td>Азия</td><td>10.7</td></tr>
+            <tr><td>11</td><td>Франция</td><td>Париж</td><td>Европа</td><td>2.1</td></tr>
+            <tr><td>12</td><td>Германия</td><td>Берлин</td><td>Европа</td><td>3.8</td></tr>
+            <tr><td>13</td><td>Италия</td><td>Рим</td><td>Европа</td><td>2.8</td></tr>
+            <tr><td>14</td><td>Испания</td><td>Мадрид</td><td>Европа</td><td>3.4</td></tr>
+            <tr><td>15</td><td>Португалия</td><td>Лиссабон</td><td>Европа</td><td>0.6</td></tr>
+            <tr><td>16</td><td>Великобритания</td><td>Лондон</td><td>Европа</td><td>8.9</td></tr>
+            <tr><td>17</td><td>Ирландия</td><td>Дублин</td><td>Европа</td><td>0.6</td></tr>
+            <tr><td>18</td><td>Норвегия</td><td>Осло</td><td>Европа</td><td>0.7</td></tr>
+            <tr><td>19</td><td>Швеция</td><td>Стокгольм</td><td>Европа</td><td>1.0</td></tr>
+            <tr><td>20</td><td>Финляндия</td><td>Хельсинки</td><td>Европа</td><td>0.7</td></tr>
+            <tr><td>21</td><td>Польша</td><td>Варшава</td><td>Европа</td><td>1.9</td></tr>
+            <tr><td>22</td><td>Чехия</td><td>Прага</td><td>Европа</td><td>1.4</td></tr>
+            <tr><td>23</td><td>Австрия</td><td>Вена</td><td>Европа</td><td>2.0</td></tr>
+            <tr><td>24</td><td>Греция</td><td>Афины</td><td>Европа</td><td>0.7</td></tr>
+            <tr><td>25</td><td>Турция</td><td>Анкара</td><td>Азия</td><td>5.8</td></tr>
+            <tr><td>26</td><td>Египет</td><td>Каир</td><td>Африка</td><td>10.1</td></tr>
+            <tr><td>27</td><td>Марокко</td><td>Рабат</td><td>Африка</td><td>0.6</td></tr>
+            <tr><td>28</td><td>Алжир</td><td>Алжир</td><td>Африка</td><td>3.0</td></tr>
+            <tr><td>29</td><td>Кения</td><td>Найроби</td><td>Африка</td><td>4.4</td></tr>
+            <tr><td>30</td><td>Эфиопия</td><td>Аддис-Абеба</td><td>Африка</td><td>5.2</td></tr>
+            <tr><td>31</td><td>ЮАР</td><td>Претория</td><td>Африка</td><td>0.8</td></tr>
+            <tr><td>32</td><td>США</td><td>Вашингтон</td><td>Северная Америка</td><td>0.7</td></tr>
+            <tr><td>33</td><td>Канада</td><td>Оттава</td><td>Северная Америка</td><td>1.1</td></tr>
+            <tr><td>34</td><td>Мексика</td><td>Мехико</td><td>Северная Америка</td><td>9.2</td></tr>
+            <tr><td>35</td><td>Куба</td><td>Гавана</td><td>Северная Америка</td><td>2.1</td></tr>
+            <tr><td>36</td><td>Ямайка</td><td>Кингстон</td><td>Северная Америка</td><td>0.7</td></tr>
+            <tr><td>37</td><td>Бразилия</td><td>Бразилиа</td><td>Южная Америка</td><td>3.0</td></tr>
+            <tr><td>38</td><td>Аргентина</td><td>Буэнос-Айрес</td><td>Южная Америка</td><td>3.1</td></tr>
+            <tr><td>39</td><td>Чили</td><td>Сантьяго</td><td>Южная Америка</td><td>5.3</td></tr>
+            <tr><td>40</td><td>Перу</td><td>Лима</td><td>Южная Америка</td><td>10.0</td></tr>
+            <tr><td>41</td><td>Колумбия</td><td>Богота</td><td>Южная Америка</td><td>7.9</td></tr>
+            <tr><td>42</td><td>Австралия</td><td>Канберра</td><td>Океания</td><td>0.5</td></tr>
+            <tr><td>43</td><td>Новая Зеландия</td><td>Веллингтон</td><td>Океания</td><td>0.2</td></tr>
+            <tr><td>44</td><td>Саудовская Аравия</td><td>Эр-Рияд</td><td>Азия</td><td>7.8</td></tr>
+            <tr><td>45</td><td>ОАЭ</td><td>Абу-Даби</td><td>Азия</td><td>1.6</td></tr>
+            <tr><td>46</td><td>Катар</td><td>Доха</td><td>Азия</td><td>1.2</td></tr>
+            <tr><td>47</td><td>Иран</td><td>Тегеран</td><td>Азия</td><td>9.5</td></tr>
+            <tr><td>48</td><td>Ирак</td><td>Багдад</td><td>Азия</td><td>8.1</td></tr>
+            <tr><td>49</td><td>Пакистан</td><td>Исламабад</td><td>Азия</td><td>1.2</td></tr>
+            <tr><td>50</td><td>Непал</td><td>Катманду</td><td>Азия</td><td>0.9</td></tr>
             </tbody>
         </table>
         <footer>
